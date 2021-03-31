@@ -1,0 +1,41 @@
+<head>
+    <title>Evaluación de lección</title>
+</head>
+<body>
+{% extends 'items/navbar.html' %}
+{% include 'items/options_dropdown.html' %}
+{% block content %}
+<div class="container">
+     <h3 class="center">Hola, </h3>
+    <h5>Por favor evalúa el contenido de {{lesson}}</h5>
+    <form method="post">
+            {% csrf_token %}
+        <p>Dificultad</p>
+            <select  name="difficulty" >
+                <option value="0"><a>Baja</a></option>
+                <option value="1"><a>Media</a></option>
+                <option value="2"><a>Alta</a></option>
+            </select>
+        <p>¿Te gustó? (0 es para nada, 10 es te encanta)</p>
+        <input type="number" name="like">
+        <p>Los videos eran fáciles de entender</p>
+        <select  name="easiness_vid" >
+                <option value="E"><a>Bastante</a></option>
+                <option value="M"><a>Fue un reto, pero los entendí</a></option>
+                <option value="H">Casi nada</option>
+            </select>
+        <p>Los ejercicios eran fáciles de hacer</p>
+        <select  name="easiness_ex" >
+                <option value="0"><a>Bastante</a></option>
+                <option value="1"><a>Fue un reto, pero los entendí</a></option>
+                <option value="2">Casi nada</option>
+            </select>
+        <p>Tiempo aproximado para terminar la lección (Minutos)</p>
+        <input type="number" name="study_time">
+
+        <input type="submit" value="Submit">
+
+        </form>
+    </div>
+{% endblock %}
+</body>

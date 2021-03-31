@@ -1,0 +1,20 @@
+{% extends 'items/navbar.html' %}
+<head>
+    <title>Centro comandos</title>
+
+</head>
+<body>
+
+{% block content %}
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<div class="container">
+<div class="column" style="flex: 50%"><h3>Feature importance plot for target  variable at_risk</h3>
+      {{plot| safe}}
+  </div>
+<form method="post">
+    {% csrf_token %}
+    <input type="submit" value="Create variable correlation heatmap">
+</form>
+    </div>
+{% endblock %}
+</body>

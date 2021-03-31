@@ -1,0 +1,29 @@
+<head>
+    <title>Usuarios</title>
+</head>
+<body>
+{% extends 'items/navbar.html' %}
+
+
+
+
+{% include 'items/options_dropdown.html' %}
+{% block content %}
+<div class="container">
+    <h2 style="font-family: 'Microsoft Yi Baiti'">Hi, please select your Kolibri username</h2>
+    <br>
+    <form method="post">
+            {% csrf_token %}
+            <label>Available kolibri users</label>
+            <select  name="users" >
+
+                {% for user in users %}
+                <option>{{ user }}</option>
+                {% endfor %}
+            </select>
+
+        <input type="submit" value="Submit">
+        </form>
+    </div>
+{% endblock %}
+</body>

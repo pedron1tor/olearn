@@ -1,0 +1,48 @@
+<head>
+    {% load static %}
+    <style>
+        h1, h2, h3, h4, h5, a, p {font-family: 'Microsoft Yi Baiti'}
+    </style>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+      $(document).ready(function(){
+        $('select').formSelect();
+      });
+    </script>
+    <script>$('.chip').addClass('blue');</script>
+    <!-- Compiled and minified CSS -->
+    <meta name = "viewport" content = "width = device-width, initial-scale = 1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel = "stylesheet"
+         href = "https://fonts.googleapis.com/icon?family=Material+Icons">
+  <nav class="blue">
+    <div class="nav-wrapper">
+        {% load static %}
+        <a href="{% url 'menu' %}" class="brand-logo" style="font-family: 'Microsoft Yi Baiti'">O-Learn</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+
+        <li><a href="{% url 'menu' %}">Home</a></li>
+            <li><a>{{ user }}</a></li>
+
+
+      </ul>
+    </div>
+  </nav>
+</head>
+<body>
+{% if messages %}
+    {% for message in messages %}
+        <div style="display: flex; justify-content: flex-end">
+            <div class="chip blue right" style="margin-inside: 20px; height: 40px; text-align: center; " >
+                <a style="color: whitesmoke">{{ message }}</a>
+                <i class="close material-icons">close</i>
+            </div>
+        </div>
+    {% endfor %}
+{% endif %}
+
+{% block content %}
+{% endblock %}
+</body>

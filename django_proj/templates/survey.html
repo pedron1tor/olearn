@@ -1,0 +1,78 @@
+<head>
+    <title>Usuarios</title>
+</head>
+<body>
+{% extends 'items/navbar.html' %}
+
+
+
+
+{% include 'items/options_dropdown.html' %}
+{% block content %}
+<div class="container">
+     <h3 class="center">Hola, bienvenido!!!</h3>
+    <p>Por favor contesta esta encuesta para conocerte mejor</p>
+    <form method="post">
+            {% csrf_token %}
+        <p>Escuela</p>
+            <select  name="school" >
+                <option value="loc_sch"><a>Escuela local</a></option>
+                <option value="city_sch"><a>En la ciudad</a></option>
+                <option value="no_sch"><a>No Escuela</a></option>
+            </select>
+        <p>Edad</p>
+        <input type="number" name="age">
+        <p>Padres, Juntos o separados</p>
+        <select  name="paternal_status" >
+                <option value="S"><a>Separados</a></option>
+                <option value="T"><a>Juntos</a></option>
+
+            </select>
+        <p>Tiempo de estudio</p>
+        <input type="number" name="study_time">
+        <p>Promedio</p>
+        <input type="number" name="grade_average">
+        <p>Tiempo libre</p>
+        <input type="number" name="free_time">
+        <p>Trabajo madre</p>
+        <select  name="job_mother" >
+                <option value="nurse"><a>Enfermera</a></option>
+                <option value="teacher"><a>Maestra</a></option>
+            <option value="bsns_owner"><a>Encargada de la tienda</a></option>
+            <option value="stay_home"><a>Se queda en casa</a></option>
+            <option value="other"><a>Otro</a></option>
+            </select>
+        <p>Trabajo padre</p>
+        <select  name="job_father" >
+                <option value="taxi_driver"><a>Taxista</a></option>
+                <option value="builder"><a>Albañil</a></option>
+            <option value="blacksmith"><a>Herrero</a></option>
+            <option value="stay_home"><a>Se queda en casa</a></option>
+            <option value="other"><a>Otro</a></option>
+            </select>
+        <p>Actividades extra</p>
+        <select  name="extra_activities" >
+                <option value="1"><a>Sí</a></option>
+                <option value="0"><a>No</a></option>
+            </select>
+        <p>Tienes trabajo?</p>
+        <select  name="work" >
+                <option value="1"><a>Sí</a></option>
+                <option value="0"><a>No</a></option>
+            </select>
+        <p>Consumo de alcohol</p>
+        <select  name="alcohol" >
+                <option value="1"><a>Sí</a></option>
+                <option value="0"><a>No</a></option>
+            </select>
+        <p>Consumo de drogas</p>
+        <select  name="drugs" >
+                <option value="1"><a>Sí</a></option>
+                <option value="0"><a>No</a></option>
+            </select>
+        <input type="submit" value="Submit">
+
+        </form>
+    </div>
+{% endblock %}
+</body>
